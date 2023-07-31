@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:37:57 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/30 17:30:47 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 19:11:29 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ ClapTrap::ClapTrap(void): _hitPoints(10), _energyPoints(10), _attackDamage(0)
 	return ;
 }
 
-ClapTrap::ClapTrap(const std::string name): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Name ClapTrap constructor called !" << std::endl;
+	std::cout << "Name ClapTrap constructor called ! :" << this->_name << std::endl;
 	return ;
 }
 
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap(const ClapTrap& obj): _name(obj._name), _hitPoints(obj._hitPo
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "ClapTrap destructor called !" << std::endl;
+	std::cout << "ClapTrap destructor called !: " << this->_name << std::endl;
 	return ;
 }
 
@@ -92,3 +92,34 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	return ;
 }
 
+void ClapTrap::setAttackDamage(unsigned int value) {
+	this->_attackDamage = value;
+}
+
+ClapTrap&	ClapTrap::operator=(const ClapTrap& obj)
+{
+	this->_name = obj.getName();
+	this->_hitPoints = obj.getHitPoints();
+	this->_energyPoints = obj.getEnergyPoints();
+	this->_attackDamage = obj.getAttackDamage();
+	return (*this);
+}
+
+unsigned int	ClapTrap::getAttackDamage() const {
+	return (this->_attackDamage);
+}
+
+unsigned int	ClapTrap::getHitPoints(void) const
+{
+	return (this->_hitPoints);
+}
+
+unsigned int	ClapTrap::getEnergyPoints(void) const
+{
+	return (this->_energyPoints);
+}
+
+std::string	ClapTrap::getName(void) const
+{
+	return (this->_name);
+}

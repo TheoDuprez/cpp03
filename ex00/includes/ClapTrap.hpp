@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:38:27 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/30 17:05:42 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 17:45:21 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ public:
 	ClapTrap(const ClapTrap& obj);
 	~ClapTrap(void);
 
+	ClapTrap&		operator=(const ClapTrap& obj);
 	void			attack(const std::string& target);
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
-	unsigned int	getAttackDamage() const;
 	void			setAttackDamage(unsigned int value);
-	std::string		getName(void);
+	std::string		getName(void) const;
+	unsigned int	getAttackDamage() const;
+	unsigned int	getHitPoints(void) const;
+	unsigned int	getEnergyPoints(void) const;
 
 };

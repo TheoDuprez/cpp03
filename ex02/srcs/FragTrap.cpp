@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:37:57 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/30 17:28:52 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 19:05:15 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ FragTrap::FragTrap(const std::string name)
 FragTrap::FragTrap(const FragTrap& obj)
 {
 	std::cout << "Copy FragTrap constructor called !" << std::endl;
-	this->_name = obj._name;
-	this->_hitPoints = obj._hitPoints;
-	this->_attackDamage = obj._attackDamage;
-	this->_energyPoints = obj._energyPoints;
+	this->_name = obj.getName();
+	this->_hitPoints = obj.getHitPoints();
+	this->_attackDamage = obj.getAttackDamage();
+	this->_energyPoints = obj.getEnergyPoints();
 	return ;
 }
 
@@ -68,4 +68,23 @@ void	FragTrap::highFivesGuys(void) const
 			break ;
 		}
 	}
+}
+
+unsigned int	FragTrap::getAttackDamage() const {
+	return (this->_attackDamage);
+}
+
+unsigned int	FragTrap::getHitPoints(void) const
+{
+	return (this->_hitPoints);
+}
+
+unsigned int	FragTrap::getEnergyPoints(void) const
+{
+	return (this->_energyPoints);
+}
+
+std::string	FragTrap::getName(void) const
+{
+	return (this->_name);
 }

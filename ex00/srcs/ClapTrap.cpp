@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:37:57 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/30 16:57:00 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 19:12:14 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,34 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	return ;
 }
 
-unsigned int ClapTrap::getAttackDamage() const {
-	return this->_attackDamage;
-}
-
 void ClapTrap::setAttackDamage(unsigned int value) {
 	this->_attackDamage = value;
 }
 
-std::string	ClapTrap::getName(void)
+ClapTrap&	ClapTrap::operator=(const ClapTrap& obj)
+{
+	this->_name = obj.getName();
+	this->_hitPoints = obj.getHitPoints();
+	this->_energyPoints = obj.getEnergyPoints();
+	this->_attackDamage = obj.getAttackDamage();
+	return (*this);
+}
+
+unsigned int	ClapTrap::getAttackDamage() const {
+	return (this->_attackDamage);
+}
+
+unsigned int	ClapTrap::getHitPoints(void) const
+{
+	return (this->_hitPoints);
+}
+
+unsigned int	ClapTrap::getEnergyPoints(void) const
+{
+	return (this->_energyPoints);
+}
+
+std::string	ClapTrap::getName(void) const
 {
 	return (this->_name);
 }

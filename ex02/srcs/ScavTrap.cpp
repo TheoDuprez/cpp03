@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:37:57 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/30 17:31:27 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 19:02:15 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ ScavTrap::ScavTrap(const std::string name)
 ScavTrap::ScavTrap(const ScavTrap& obj)
 {
 	std::cout << "Copy ScavTrap constructor called !" << std::endl;
-	this->_name = obj._name;
-	this->_hitPoints = obj._hitPoints;
-	this->_attackDamage = obj._attackDamage;
-	this->_energyPoints = obj._energyPoints;
+	this->_name = obj.getName();
+	this->_hitPoints = obj.getHitPoints();
+	this->_attackDamage = obj.getAttackDamage();
+	this->_energyPoints = obj.getEnergyPoints();
 	return ;
 }
 
@@ -51,4 +51,23 @@ void	ScavTrap::guardGate(void) const
 {
 	std::cout << this->_name << " is in Gate keeper mod !" << std::endl;
 	return ;
+}
+
+unsigned int	ScavTrap::getAttackDamage() const {
+	return (this->_attackDamage);
+}
+
+unsigned int	ScavTrap::getHitPoints(void) const
+{
+	return (this->_hitPoints);
+}
+
+unsigned int	ScavTrap::getEnergyPoints(void) const
+{
+	return (this->_energyPoints);
+}
+
+std::string	ScavTrap::getName(void) const
+{
+	return (this->_name);
 }

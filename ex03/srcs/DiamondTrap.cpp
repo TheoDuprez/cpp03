@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:37:57 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/30 18:24:08 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 19:07:08 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ DiamondTrap::DiamondTrap(const std::string name)
 DiamondTrap::DiamondTrap(const DiamondTrap& obj)
 {
 	std::cout << "Copy DiamondTrap constructor called !" << std::endl;
-	this->_name = obj._name;
+	this->_name = obj.getName();
 	this->FragTrap::_hitPoints = obj.FragTrap::_hitPoints;
 	this->ScavTrap::_energyPoints = obj.ScavTrap::_energyPoints;
 	this->FragTrap::_attackDamage = obj.FragTrap::_attackDamage;
@@ -45,4 +45,9 @@ DiamondTrap::~DiamondTrap(void)
 {
 	std::cout << "DiamondTrap destructor called !" << std::endl;
 	return ;
+}
+
+std::string		DiamondTrap::getName(void) const
+{
+	return (this->_name);
 }

@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:38:27 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/30 18:20:05 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 19:07:30 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ public:
 	DiamondTrap(const DiamondTrap& obj);
 	~DiamondTrap(void);
 
-	using	ScavTrap::attack;
-	void	whoAmI(void);
+	using			ScavTrap::attack;
+	void			whoAmI(void);
+	std::string		getName(void) const;
+
 };
