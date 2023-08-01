@@ -31,7 +31,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	echo "$(GREEN)scavTrap successfully compiled !$(WHITE)"
 
-./srcs/%.o: ./srcs/%.cpp $(HEADERS)/ClapTrap.hpp $(HEADERS)/ScapTrap.hpp
+./srcs/%.o: ./srcs/%.cpp $(HEADERS)/ClapTrap.hpp $(HEADERS)/ScavTrap.hpp
 	$(CC) $(CFLAGS) -I$(HEADERS) -c $< -o $@
 
 clean:

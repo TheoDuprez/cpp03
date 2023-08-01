@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:38:27 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/31 19:02:38 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/08/01 16:24:35 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ public:
 	ScavTrap(const ScavTrap& obj);
 	~ScavTrap(void);
 
-	void			guardGate(void) const;
-	std::string		getName(void) const;
-	unsigned int	getAttackDamage() const;
-	unsigned int	getHitPoints(void) const;
-	unsigned int	getEnergyPoints(void) const;
+	void	guardGate(void) const;
 
+	void	attack(const std::string& target);
+	
 };

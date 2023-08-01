@@ -6,17 +6,18 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:37:57 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/31 19:05:15 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/08/01 16:45:33 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/FragTrap.hpp"
+#include <cstdlib>
 
 FragTrap::FragTrap(void)
 {
-	this->_hitPoints = 10;
-	this->_energyPoints = 10;
-	this->_attackDamage = 0;
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 	std::cout << "Default ClatTrap constructor called !" << std::endl;
 	return ;
 }
@@ -34,10 +35,10 @@ FragTrap::FragTrap(const std::string name)
 FragTrap::FragTrap(const FragTrap& obj)
 {
 	std::cout << "Copy FragTrap constructor called !" << std::endl;
-	this->_name = obj.getName();
-	this->_hitPoints = obj.getHitPoints();
-	this->_attackDamage = obj.getAttackDamage();
-	this->_energyPoints = obj.getEnergyPoints();
+	this->_name = obj._name;
+	this->_hitPoints = obj._hitPoints;
+	this->_energyPoints = obj._energyPoints;
+	this->_attackDamage = obj._attackDamage;
 	return ;
 }
 
@@ -55,6 +56,11 @@ void	FragTrap::highFivesGuys(void) const
 	{
 		std::cout << "Y/n :" << std::endl;
 		std::getline(std::cin, userInput);
+		if (std::cin.eof() == true)
+		{
+			std::cout << "Error, an EOF was detected!" << std::endl;
+			std::exit(1);
+		}
 		if (userInput != std::string("Y") && userInput != std::string("n"))
 			continue ;
 		else if (userInput == std::string("Y"))
@@ -68,23 +74,4 @@ void	FragTrap::highFivesGuys(void) const
 			break ;
 		}
 	}
-}
-
-unsigned int	FragTrap::getAttackDamage() const {
-	return (this->_attackDamage);
-}
-
-unsigned int	FragTrap::getHitPoints(void) const
-{
-	return (this->_hitPoints);
-}
-
-unsigned int	FragTrap::getEnergyPoints(void) const
-{
-	return (this->_energyPoints);
-}
-
-std::string	FragTrap::getName(void) const
-{
-	return (this->_name);
 }

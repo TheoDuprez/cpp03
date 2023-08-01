@@ -6,13 +6,13 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:37:57 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/31 19:12:14 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/08/01 16:22:52 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void): _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(void): _name(std::string("Default")), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "Default ClatTrap constructor called !" << std::endl;
 	return ;
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap(void): _hitPoints(10), _energyPoints(10), _attackDamage(0)
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Name ClapTrap constructor called ! :" << this->_name << std::endl;
+	std::cout << "Name ClapTrap constructor called !" << std::endl;
 	return ;
 }
 
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap(const ClapTrap& obj): _name(obj._name), _hitPoints(obj._hitPo
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "ClapTrap destructor called !: " << this->_name << std::endl;
+	std::cout << "ClapTrap destructor called !" << std::endl;
 	return ;
 }
 
@@ -92,17 +92,17 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	return ;
 }
 
-void ClapTrap::setAttackDamage(unsigned int value) {
-	this->_attackDamage = value;
-}
-
 ClapTrap&	ClapTrap::operator=(const ClapTrap& obj)
 {
-	this->_name = obj.getName();
-	this->_hitPoints = obj.getHitPoints();
-	this->_energyPoints = obj.getEnergyPoints();
-	this->_attackDamage = obj.getAttackDamage();
+	this->_name = obj._name;
+	this->_hitPoints = obj._hitPoints;
+	this->_energyPoints = obj._energyPoints;
+	this->_attackDamage = obj._attackDamage;
 	return (*this);
+}
+
+void ClapTrap::setAttackDamage(unsigned int value) {
+	this->_attackDamage = value;
 }
 
 unsigned int	ClapTrap::getAttackDamage() const {
